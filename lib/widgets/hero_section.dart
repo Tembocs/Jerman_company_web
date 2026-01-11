@@ -19,22 +19,11 @@ class HeroSection extends StatelessWidget {
         image: const DecorationImage(
           image: AssetImage('assets/images/hero.png'),
           fit: BoxFit.cover,
-          colorFilter: ColorFilter.mode(Colors.black45, BlendMode.darken),
-          onError: null,
         ),
       ),
       child: Container(
-        // Fallback gradient overlay
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Theme.of(context).colorScheme.primary.withOpacity(0.8),
-              Theme.of(context).colorScheme.primaryContainer.withOpacity(0.9),
-            ],
-          ),
-        ),
+        // Dark overlay for text readability
+        decoration: BoxDecoration(color: Colors.black.withOpacity(0.4)),
         child: Center(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
