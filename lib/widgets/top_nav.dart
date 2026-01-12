@@ -15,8 +15,6 @@ class TopNav extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _TopNavState extends State<TopNav> {
-  bool _isScrolled = false;
-
   @override
   Widget build(BuildContext context) {
     final isSmallScreen = MediaQuery.of(context).size.width < 768;
@@ -25,18 +23,18 @@ class _TopNavState extends State<TopNav> {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 200),
       decoration: BoxDecoration(
-        color: _isScrolled
-            ? Theme.of(context).colorScheme.surface.withOpacity(0.95)
-            : Theme.of(context).colorScheme.surface,
-        boxShadow: _isScrolled
-            ? [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
-                  blurRadius: 10,
-                  offset: const Offset(0, 2),
-                ),
-              ]
-            : [],
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [const Color(0xFF059669), const Color(0xFF047857)],
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFF059669).withOpacity(0.3),
+            blurRadius: 10,
+            offset: const Offset(0, 2),
+          ),
+        ],
       ),
       child: SafeArea(
         child: Container(
@@ -114,22 +112,16 @@ class _AnimatedMenuButtonState extends State<_AnimatedMenuButton> {
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             color: _isHovered
-                ? Theme.of(context).colorScheme.primary.withOpacity(0.1)
+                ? Colors.white.withOpacity(0.2)
                 : Colors.transparent,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
               color: _isHovered
-                  ? Theme.of(context).colorScheme.primary.withOpacity(0.3)
+                  ? Colors.white.withOpacity(0.3)
                   : Colors.transparent,
             ),
           ),
-          child: Icon(
-            Icons.menu_rounded,
-            color: _isHovered
-                ? Theme.of(context).colorScheme.primary
-                : const Color(0xFF374151),
-            size: 24,
-          ),
+          child: Icon(Icons.menu_rounded, color: Colors.white, size: 24),
         ),
       ),
     );
@@ -156,24 +148,26 @@ class _AnimatedLogoState extends State<_AnimatedLogo> {
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           decoration: BoxDecoration(
             color: _isHovered
-                ? Theme.of(context).colorScheme.primary.withOpacity(0.05)
+                ? Colors.white.withOpacity(0.1)
                 : Colors.transparent,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              // Logo with gradient border
+              // Logo with white border
               Container(
                 padding: const EdgeInsets.all(2),
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Theme.of(context).colorScheme.primary,
-                      const Color(0xFF047857),
-                    ],
-                  ),
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 8,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
                 ),
                 child: Container(
                   decoration: BoxDecoration(
@@ -214,28 +208,20 @@ class _AnimatedLogoState extends State<_AnimatedLogo> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ShaderMask(
-                    shaderCallback: (bounds) => LinearGradient(
-                      colors: [
-                        Theme.of(context).colorScheme.primary,
-                        const Color(0xFF047857),
-                      ],
-                    ).createShader(bounds),
-                    child: Text(
-                      'JERMAN',
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w800,
-                        color: Colors.white,
-                        letterSpacing: 1.5,
-                        height: 1,
-                      ),
+                  Text(
+                    'JERMAN',
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w800,
+                      color: Colors.white,
+                      letterSpacing: 1.5,
+                      height: 1,
                     ),
                   ),
                   Text(
                     'COMPANY',
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                       fontWeight: FontWeight.w600,
-                      color: const Color(0xFF6B7280),
+                      color: Colors.white.withOpacity(0.8),
                       letterSpacing: 2,
                       fontSize: 10,
                     ),
@@ -283,14 +269,14 @@ class _UltraNavButtonState extends State<_UltraNavButton> {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
           decoration: BoxDecoration(
             color: widget.isActive
-                ? Theme.of(context).colorScheme.primary.withOpacity(0.1)
+                ? Colors.white.withOpacity(0.2)
                 : (_isHovered
-                      ? Theme.of(context).colorScheme.primary.withOpacity(0.05)
+                      ? Colors.white.withOpacity(0.1)
                       : Colors.transparent),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
               color: widget.isActive
-                  ? Theme.of(context).colorScheme.primary.withOpacity(0.3)
+                  ? Colors.white.withOpacity(0.3)
                   : Colors.transparent,
             ),
           ),
@@ -300,13 +286,7 @@ class _UltraNavButtonState extends State<_UltraNavButton> {
               if (widget.isActive || _isHovered)
                 Padding(
                   padding: const EdgeInsets.only(right: 6),
-                  child: Icon(
-                    widget.icon,
-                    size: 16,
-                    color: widget.isActive
-                        ? Theme.of(context).colorScheme.primary
-                        : const Color(0xFF6B7280),
-                  ),
+                  child: Icon(widget.icon, size: 16, color: Colors.white),
                 ),
               Text(
                 widget.label,
@@ -314,11 +294,7 @@ class _UltraNavButtonState extends State<_UltraNavButton> {
                   fontWeight: widget.isActive
                       ? FontWeight.w700
                       : FontWeight.w500,
-                  color: widget.isActive
-                      ? Theme.of(context).colorScheme.primary
-                      : (_isHovered
-                            ? Theme.of(context).colorScheme.primary
-                            : const Color(0xFF374151)),
+                  color: Colors.white,
                   fontSize: 14,
                 ),
               ),
@@ -349,25 +325,13 @@ class _ContactButtonState extends State<_ContactButton> {
           duration: const Duration(milliseconds: 200),
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: _isHovered
-                  ? [
-                      const Color(0xFF047857),
-                      Theme.of(context).colorScheme.primary,
-                    ]
-                  : [
-                      Theme.of(context).colorScheme.primary,
-                      const Color(0xFF047857),
-                    ],
-            ),
+            color: Colors.white,
             borderRadius: BorderRadius.circular(12),
             boxShadow: [
               BoxShadow(
-                color: Theme.of(
-                  context,
-                ).colorScheme.primary.withOpacity(_isHovered ? 0.4 : 0.2),
-                blurRadius: _isHovered ? 20 : 10,
-                offset: const Offset(0, 4),
+                color: Colors.black.withOpacity(_isHovered ? 0.15 : 0.1),
+                blurRadius: _isHovered ? 12 : 8,
+                offset: const Offset(0, 2),
               ),
             ],
           ),
@@ -377,12 +341,12 @@ class _ContactButtonState extends State<_ContactButton> {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(Icons.phone, size: 16, color: Colors.white),
+              Icon(Icons.phone, size: 16, color: const Color(0xFF059669)),
               const SizedBox(width: 8),
-              const Text(
+              Text(
                 'Get in Touch',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: const Color(0xFF059669),
                   fontWeight: FontWeight.w600,
                   fontSize: 14,
                 ),
