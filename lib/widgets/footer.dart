@@ -237,9 +237,9 @@ class Footer extends StatelessWidget {
         const SizedBox(height: 20),
         _ContactItem(icon: Icons.location_on, text: 'Tanzania'),
         const SizedBox(height: 12),
-        _ContactItem(icon: Icons.phone, text: '+255 000 000 000'),
+        _ContactItem(icon: Icons.phone, text: '+255 701 011 003'),
         const SizedBox(height: 12),
-        _ContactItem(icon: Icons.email, text: 'info@jermancompany.com'),
+        _ContactItem(icon: Icons.email, text: 'edwardjonathan16151@gmail.com'),
       ],
     );
   }

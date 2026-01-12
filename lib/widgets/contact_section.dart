@@ -42,13 +42,13 @@ class ContactSection extends StatelessWidget {
                   _ContactItem(
                     icon: Icons.phone,
                     label: 'Phone',
-                    value: '+255 000 000 000',
+                    value: '+255 070 101 1003',
                     isSmall: isSmallScreen,
                   ),
                   _ContactItem(
                     icon: Icons.email,
                     label: 'Email',
-                    value: 'info@jermancompany.com',
+                    value: 'edwardjonathan16151@gmail.com',
                     isSmall: isSmallScreen,
                   ),
                   _ContactItem(

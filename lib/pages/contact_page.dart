@@ -115,13 +115,13 @@ class _ContactPageState extends State<ContactPage> {
         _ContactInfoItem(
           icon: Icons.phone,
           title: 'Phone',
-          value: '+255 000 000 000',
+          value: '+255 070 101 1003',
         ),
         const SizedBox(height: 16),
         _ContactInfoItem(
           icon: Icons.email,
           title: 'Email',
-          value: 'info@jermancompany.com',
+          value: 'edwardjonathan16151@gmail.com',
         ),
         const SizedBox(height: 16),
         _ContactInfoItem(

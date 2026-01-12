@@ -92,7 +92,7 @@ class _HeroSectionState extends State<HeroSection>
                           borderRadius: BorderRadius.circular(30),
                         ),
                         child: Text(
-                          '✦ TRUSTED SINCE 2010',
+                          '✦ TRUSTED SINCE 2025',
                           style: Theme.of(context).textTheme.bodySmall
                               ?.copyWith(
                                 color: Colors.white,

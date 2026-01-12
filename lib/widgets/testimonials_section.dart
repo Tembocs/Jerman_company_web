@@ -68,15 +68,15 @@ class TestimonialsSection extends StatelessWidget {
                     return const Column(
                       children: [
                         _TestimonialCard(
-                          name: 'John Mwangi',
-                          role: 'CEO, TechStart Africa',
+                          name: 'Jonathan Edward',
+                          role: 'CEO, Mananger of the Company',
                           content:
                               'JERMAN COMPANY transformed our business operations. Their expertise and dedication to excellence is unmatched. Highly recommended!',
                           rating: 5,
                         ),
                         SizedBox(height: 24),
                         _TestimonialCard(
-                          name: 'Sarah Kimani',
+                          name: 'Kelvin Simon',
                           role: 'Director, Green Solutions Ltd',
                           content:
                               'Professional, reliable, and results-driven. They delivered beyond our expectations and continue to support our growth.',
@@ -84,7 +84,7 @@ class TestimonialsSection extends StatelessWidget {
                         ),
                         SizedBox(height: 24),
                         _TestimonialCard(
-                          name: 'Emmanuel Okonkwo',
+                          name: 'Edgar Omondi',
                           role: 'Founder, Swift Logistics',
                           content:
                               'Working with JERMAN COMPANY has been a game-changer. Their strategic insights helped us scale efficiently.',
@@ -98,8 +98,8 @@ class TestimonialsSection extends StatelessWidget {
                     children: [
                       Expanded(
                         child: _TestimonialCard(
-                          name: 'John Mwangi',
-                          role: 'CEO, TechStart Africa',
+                          name: 'Jonathan Edward',
+                          role: 'CEO, Mananger of the Company',
                           content:
                               'JERMAN COMPANY transformed our business operations. Their expertise and dedication to excellence is unmatched. Highly recommended!',
                           rating: 5,
@@ -108,7 +108,7 @@ class TestimonialsSection extends StatelessWidget {
                       SizedBox(width: 24),
                       Expanded(
                         child: _TestimonialCard(
-                          name: 'Sarah Kimani',
+                          name: 'Kelvin Simon',
                           role: 'Director, Green Solutions Ltd',
                           content:
                               'Professional, reliable, and results-driven. They delivered beyond our expectations and continue to support our growth.',
@@ -118,7 +118,7 @@ class TestimonialsSection extends StatelessWidget {
                       SizedBox(width: 24),
                       Expanded(
                         child: _TestimonialCard(
-                          name: 'Emmanuel Okonkwo',
+                          name: 'Edgar Omondi',
                           role: 'Founder, Swift Logistics',
                           content:
                               'Working with JERMAN COMPANY has been a game-changer. Their strategic insights helped us scale efficiently.',
